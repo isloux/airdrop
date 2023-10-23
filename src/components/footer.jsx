@@ -7,7 +7,7 @@ import {
     useColorModeValue,
     VisuallyHidden
   } from '@chakra-ui/react';
-  import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+  import { FaInstagram, FaTwitter, FaFacebook, FaTelegram } from 'react-icons/fa';
   import { ReactNode } from 'react';
   
   const SocialButton = ({
@@ -56,14 +56,17 @@ import {
           align={{ base: 'center', md: 'center' }}>
           <Text>© 2023 Website maintained by Subterra Software SASU</Text>
           <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
+            <SocialButton label={'Twitter'} href={'https://twitter.com/BaldGtoken'}>
               <FaTwitter />
             </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
-              <FaYoutube />
+            <SocialButton label={'Facebook'} href={'https://www.facebook.com/people/BaldGtoken_Official/61550821750443'}>
+              <FaFacebook />
             </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
+            <SocialButton label={'Instagram'} href={'https://www.instagram.com/baldgtoken'}>
               <FaInstagram />
+            </SocialButton>
+            <SocialButton label={'Telegram'} href={'https://t.me/baldgtoken'}>
+              <FaTelegram />
             </SocialButton>
           </Stack>
         </Container>

@@ -2,12 +2,18 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/breadcrum
 import { ChevronRightIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Button, useColorMode, Stack, HStack } from '@chakra-ui/react';
 import detectEthereumProvider from '@metamask/detect-provider';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Voir https://docs.moonbeam.network/builders/integrations/wallets/metamask/
 
 const NavBarWeb3 = () => {
     const { colorMode, toggleColorMode } = useColorMode()
+    const [address, setAddress] = useState("Connect wallet");
+
+    const shortenAddress = (address) => {
+        return `${address.slice(0, 5)}...${address.slice(address.length - 4)}`;
+    };
 
     const configureMoonbaseAlpha = async () => {
         const provider = await detectEthereumProvider({ mustBeMetaMask: true });
@@ -18,18 +24,19 @@ const NavBarWeb3 = () => {
                     method: "wallet_addEthereumChain",
                     params: [
                         {
-                            chainId: "0x507", // Moonbase Alpha's chainId is 1287, which is 0x507 in hex
-                            chainName: "Moonbase Alpha",
+                            chainId: "0x38", // BSC chainId is 56, which is 0x38 in hex
+                            chainName: "BNB Smart Chain",
                             nativeCurrency: {
-                                name: 'DEV',
-                                symbol: 'DEV',
+                                name: 'BNB',
+                                symbol: 'BNB',
                                 decimals: 18
                             },
-                        rpcUrls: ["https://rpc.api.moonbase.moonbeam.network"],
-                        blockExplorerUrls: ["https://moonbase.moonscan.io/"]
+                        rpcUrls: ["https://bsc-dataseed4.bnbchain.org"],
+                        blockExplorerUrls: ["https://bscscan.com"]
                         },
                     ]
                 });
+                setAddress(shortenAddress(provider.selectedAddress));
             } catch(e) {
                 console.error(e);
             }  
@@ -50,7 +57,7 @@ const NavBarWeb3 = () => {
                 </BreadcrumbItem>
             </Breadcrumb>
             <HStack>
-                <Button onClick={configureMoonbaseAlpha}>Connect Wallet</Button>
+                <Button onClick={configureMoonbaseAlpha}>{address}</Button>
                 <Button onClick={toggleColorMode}>
                     {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 </Button>
