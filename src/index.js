@@ -12,7 +12,19 @@ root.render(
       {
         fonts: {
           heading: '"Bebas Neue", "Inter"',
-          body: '"Bebas Neue", "Inter"'
+          body: '"Bebas Neue", "Inter"',
+        },
+        textStyles: {
+          question: {
+            fontFamily: '"Inter"',
+            fontWeight: 'bold',
+            fontSize: '14pt'
+          },
+          answer: {
+            fontFamily: '"Inter"',
+            fontSize: '12pt',
+            textAlign: 'justify'
+          }
         }
       }
     )}>

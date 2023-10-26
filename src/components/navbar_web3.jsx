@@ -46,7 +46,7 @@ const NavBarWeb3 = (props) => {
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink as={Link} to='/help'>Help</BreadcrumbLink>
+                    <BreadcrumbLink as={Link} to='/faq'>FAQ</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
             <HStack>

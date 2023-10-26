@@ -7,7 +7,6 @@ import { Contract } from 'ethers';
 import contractJson from '../AirdropList.json';
 
 const Home = () => {
-  const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
   const [networkId, setNetworkId] = useState(0);
   const [account, setAccount] = useState("");
@@ -24,7 +23,6 @@ const Home = () => {
   });
 
   const callbackProvider = (childData) => {
-    setProvider(childData.provider);
     setSigner(childData.signer);
     setNetworkId(childData.networkId);
     setAccount(childData.account);
@@ -59,6 +57,7 @@ const Home = () => {
           <Center>
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
+          <Box>Airdrop date: 26th December 2023, 14:13:20</Box>
           <CountdownTimer>Time until airdrop</CountdownTimer>
           <Box>
             <Button boxShadow="lg" fontSize="xl" p={6} onClick={sendAirdrop}>
