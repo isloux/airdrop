@@ -1,10 +1,11 @@
 import { Flex, Container, VStack, Heading, Box, Link } from '@chakra-ui/react';
 import NavBarWeb3 from '../components/navbar_web3';
 import SmallWithLogoLeft from '../components/footer';
+import background from '../20231026_151606_0000.png'
 
 const About = () => {
     return (
-        <Flex minH='100vh' flexDirection='column'>
+        <Flex minH='100vh' flexDirection='column' bgImage={background}>
             <NavBarWeb3 />
             <Container maxW='container.md' p={3}>
                 <VStack spacing="12px" m={3}>
