@@ -16,9 +16,9 @@ const About = () => {
                         <Box textStyle='question'>When will the airdrop be sent out?</Box>
                         <Box textStyle='answer'>The airdrop will be sent out any time after the airdrop time is past.</Box>
                         <Box textStyle='question'>What should I do if I have participated to the presale?</Box>
-                        <Box textStyle='answer'>Do nothing and wait for the airdrop reception, or click on the airdrop button on the Home page to send the airdrop to all participants. The airdrop can be called only once.</Box>
+                        <Box textStyle='answer'>Nothing and wait for the airdrop reception, or click on the airdrop button on the Home page to send the airdrop to all participants. The airdrop can be sent out only once.</Box>
                         <Box textStyle='question'>What should I do if I have not participated to the presale?</Box>
-                        <Box textStyle='answer'>Do nothing, or click on the airdrop button on the Home page to send the airdrop, but you will not receive anything.</Box>
+                        <Box textStyle='answer'>Nothing, or click on the airdrop button on the Home page to send the airdrop, but you will not receive anything.</Box>
                 </VStack>
                 </VStack>
             </Container>
