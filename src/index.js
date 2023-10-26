@@ -4,30 +4,12 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Fonts from './components/fonts';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import theme from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChakraProvider theme={extendTheme(
-      {
-        fonts: {
-          heading: '"Bebas Neue", "Inter"',
-          body: '"Bebas Neue", "Inter"',
-        },
-        textStyles: {
-          question: {
-            fontFamily: '"Inter"',
-            fontWeight: 'bold',
-            fontSize: '14pt'
-          },
-          answer: {
-            fontFamily: '"Inter"',
-            fontSize: '12pt',
-            textAlign: 'justify'
-          }
-        }
-      }
-    )}>
+    <ChakraProvider theme={extendTheme(theme)}>
       <Fonts />
       <App />    
     </ChakraProvider>

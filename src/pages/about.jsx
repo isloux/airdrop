@@ -1,11 +1,14 @@
-import { Flex, Container, VStack, Heading, Box, Link } from '@chakra-ui/react';
+import { Flex, Container, VStack, Heading, Box, Link, useColorModeValue } from '@chakra-ui/react';
 import NavBarWeb3 from '../components/navbar_web3';
 import SmallWithLogoLeft from '../components/footer';
-import background from '../20231026_151606_0000.png'
+import darkBackground from '../20231026_151606_0000.png'
+import lightBackground from '../20231026_151606_0000_light.png'
 
 const About = () => {
+    const backgroundImage = useColorModeValue(lightBackground, darkBackground);
+
     return (
-        <Flex minH='100vh' flexDirection='column' bgImage={background}>
+        <Flex minH='100vh' flexDirection='column' bgImage={backgroundImage}>
             <NavBarWeb3 />
             <Container maxW='container.md' p={3}>
                 <VStack spacing="12px" m={3}>
