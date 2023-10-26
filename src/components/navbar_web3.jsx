@@ -36,6 +36,7 @@ const NavBarWeb3 = (props) => {
                 console.log(error);
             }
         }
+        else alert("Please install a wallet extension");
     }
 
     return(

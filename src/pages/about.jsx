@@ -12,17 +12,16 @@ const About = () => {
                     <Heading>BaldG airdrop FAQ</Heading>
                     <VStack alignItems='left'>
                         <Box textStyle='question'>Who will receive the airdrop?</Box>
-                        <Box textStyle='answer'>Airdrop recipient addresses will be the ones participating to the <Link href='https://pinksale.finance'>Pinksale</Link> presale.</Box>
+                        <Box textStyle='answer'>Airdrop recipient addresses will be the ones participating to the BaldG token <Link href='https://www.pinksale.finance/launchpads?chain=BSC-Test'>Pinksale presale</Link>.</Box>
                         <Box textStyle='question'>When will the airdrop be sent out?</Box>
                         <Box textStyle='answer'>The airdrop will be sent out any time after the airdrop time is past.</Box>
                         <Box textStyle='question'>What should I do if I have participated to the presale?</Box>
                         <Box textStyle='answer'>Nothing and wait for the airdrop reception, or click on the airdrop button on the Home page to send the airdrop to all participants. The airdrop can be sent out only once.</Box>
                         <Box textStyle='question'>What should I do if I have not participated to the presale?</Box>
                         <Box textStyle='answer'>Nothing, or click on the airdrop button on the Home page to send the airdrop, but you will not receive anything.</Box>
-                </VStack>
+                    </VStack>
                 </VStack>
             </Container>
-
             <SmallWithLogoLeft />
         </Flex>
     )
