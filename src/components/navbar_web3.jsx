@@ -1,47 +1,40 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/breadcrumb';
 import { ChevronRightIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Button, useColorMode, Stack, HStack } from '@chakra-ui/react';
-import detectEthereumProvider from '@metamask/detect-provider';
-import { useState } from 'react';
+import { BrowserProvider } from 'ethers';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 // Voir https://docs.moonbeam.network/builders/integrations/wallets/metamask/
 
-const NavBarWeb3 = () => {
+const NavBarWeb3 = (props) => {
     const { colorMode, toggleColorMode } = useColorMode()
-    const [address, setAddress] = useState("Connect wallet");
+    const buttonText = useRef("CONNECT WALLET");
 
     const shortenAddress = (address) => {
         return `${address.slice(0, 5)}...${address.slice(address.length - 4)}`;
     };
 
-    const configureMoonbaseAlpha = async () => {
-        const provider = await detectEthereumProvider({ mustBeMetaMask: true });
-        if (provider) {
+    const connectWallet = async () => {
+        if ((window.ethereum) && (buttonText.current.length < 20)) {
+            const provider = new BrowserProvider(window.ethereum);
             try {
-                await provider.request({ method: "eth_requestAccounts"});
-                await provider.request({
-                    method: "wallet_addEthereumChain",
-                    params: [
-                        {
-                            chainId: "0x38", // BSC chainId is 56, which is 0x38 in hex
-                            chainName: "BNB Smart Chain",
-                            nativeCurrency: {
-                                name: 'BNB',
-                                symbol: 'BNB',
-                                decimals: 18
-                            },
-                        rpcUrls: ["https://bsc-dataseed4.bnbchain.org"],
-                        blockExplorerUrls: ["https://bscscan.com"]
-                        },
-                    ]
+                // Request account access if needed
+                provider.send("eth_requestAccounts", []).then(() => {
+                    provider.getSigner().then((signer) => {
+                        signer.getAddress().then(
+                            (account) => {
+                                buttonText.current = shortenAddress(account);
+                                provider.getNetwork().then((networkId) => {
+                                    props.parentCallback({ provider: provider, signer: signer, networkId: networkId.chainId, account: account });
+                                });
+                            }
+                        );
+                    });
                 });
-                setAddress(shortenAddress(provider.selectedAddress));
-            } catch(e) {
-                console.error(e);
-            }  
-        } else {
-            alert("Please install MetaMask");
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -53,11 +46,11 @@ const NavBarWeb3 = () => {
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink as={Link} to='/about'>About</BreadcrumbLink>
+                    <BreadcrumbLink as={Link} to='/help'>Help</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
             <HStack>
-                <Button onClick={configureMoonbaseAlpha}>{address}</Button>
+                <Button onClick={connectWallet}>{buttonText.current}</Button>
                 <Button onClick={toggleColorMode}>
                     {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 </Button>

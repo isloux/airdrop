@@ -28,7 +28,7 @@ const CountdownTimer = (props) => {
   
     return (
       <Box bgColor="#1A1B1D" color="#FFDF2B" p={4} borderRadius={4}>
-        <Text fontSize="2xl">
+        <Text fontSize="3xl">
           {props.children}: {countdown.days} days, {countdown.hours} hours, {countdown.minutes} minutes, {countdown.seconds} seconds
         </Text>
       </Box>
