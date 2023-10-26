@@ -2,7 +2,7 @@ import { Button, Flex, VStack, Container, Box, Image, Center, Heading } from '@c
 import NavBarWeb3 from '../components/navbar_web3';
 import SmallWithLogoLeft from '../components/footer';
 import CountdownTimer from '../components/countdown';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Contract } from 'ethers';
 import contractJson from '../AirdropList.json';
 
@@ -12,6 +12,17 @@ const Home = () => {
   const [networkId, setNetworkId] = useState(0);
   const [account, setAccount] = useState("");
 
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on("chainChanged", () => {
+        window.location.reload();
+      });
+      window.ethereum.on("accountsChanged", () => {
+        window.location.reload();
+      });
+    }
+  });
+
   const callbackProvider = (childData) => {
     setProvider(childData.provider);
     setSigner(childData.signer);
@@ -20,18 +31,22 @@ const Home = () => {
   }
 
   const sendAirdrop = async () => {
-    const deployedAddress = "0x7C78ad05F65432d08C3700879C8C86Ba90c81d33";
-    const contract = new Contract(deployedAddress, contractJson.abi, signer);
-    try {
-      const estimatedGas = await contract.sendAirdrop.estimateGas();
-      const tx = await contract.sendAirdrop({
-        from: account,
-        gas: estimatedGas
-      });
-      console.log(tx);
-    }
-    catch {
-      alert("Airdrop cannot be sent! The possible reasons are:\n - The airdrop time has not been reached\n - The airdrop chest has not been funded\n - The airdrop has already been sent out");
+    console.log(networkId);
+    if (networkId != 97) alert("Please connect to BSC testnet!");
+    else {
+      const deployedAddress = "0x7C78ad05F65432d08C3700879C8C86Ba90c81d33";
+      const contract = new Contract(deployedAddress, contractJson.abi, signer);
+      try {
+        const estimatedGas = await contract.sendAirdrop.estimateGas();
+        const tx = await contract.sendAirdrop({
+          from: account,
+          gas: estimatedGas
+        });
+        console.log(tx);
+      }
+      catch {
+        alert("Airdrop cannot be sent! The possible reasons are:\n - The airdrop time has not been reached\n - The airdrop chest has not been funded\n - The airdrop has already been sent out");
+      }
     }
   }
 
