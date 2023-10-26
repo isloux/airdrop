@@ -22,7 +22,7 @@ const config = {
       textAlign: 'justify'
     }
   },
-  initialColorMode: 'light',
+  initialColorMode: 'dark',
   useSystemColorMode: false,
   colors: {
     base: {
