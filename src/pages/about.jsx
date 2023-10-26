@@ -2,7 +2,7 @@ import { Flex, Container, VStack, Heading, Box, Link, useColorModeValue } from '
 import NavBarWeb3 from '../components/navbar_web3';
 import SmallWithLogoLeft from '../components/footer';
 import darkBackground from '../20231026_151606_0000.png'
-import lightBackground from '../20231026_151606_0000_light.png'
+import lightBackground from '../20231026_151606_0000_gradientlight.png'
 
 const About = () => {
     const backgroundImage = useColorModeValue(lightBackground, darkBackground);
@@ -21,7 +21,7 @@ const About = () => {
                         <Box textStyle='question'>What should I do if I have participated to the presale?</Box>
                         <Box textStyle='answer'>Nothing and wait for the airdrop reception, or click on the airdrop button on the Home page to send the airdrop to all participants. The airdrop can be sent out only once.</Box>
                         <Box textStyle='question'>What should I do if I have not participated to the presale?</Box>
-                        <Box textStyle='answer'>Nothing, or click on the airdrop button on the Home page to send the airdrop, but you will not receive anything.</Box>
+                        <Box textStyle='answer'>Nothing, or click on the airdrop button on the Home page to send the airdrop, but you will not receive anything. You can still purchase the token on <Link href="https://pancakeswap.finance/swap?chain=bscTestnet&outputCurrency=0xFa60D973F7642B748046464e165A65B7323b0DEE&inputCurrency=TBNB">Pancakeswap</Link>.</Box>
                     </VStack>
                 </VStack>
             </Container>
