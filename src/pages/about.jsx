@@ -8,7 +8,7 @@ const About = () => {
     const backgroundImage = useColorModeValue(lightBackground, darkBackground);
 
     return (
-        <Flex minH='100vh' flexDirection='column' bgImage={backgroundImage}>
+        <Flex minH='100vh' flexDirection='column' bgImage={backgroundImage}  bgPosition='center' bgRepeat='no-repeat'>
             <NavBarWeb3 />
             <Container maxW='container.md' p={3}>
                 <VStack spacing="12px" m={3}>

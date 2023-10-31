@@ -5,6 +5,7 @@ import CountdownTimer from '../components/countdown';
 import { useState, useEffect } from 'react';
 import { Contract } from 'ethers';
 import contractJson from '../AirdropList.json';
+import darkBackground from '../background.png';
 
 const Home = () => {
   const [signer, setSigner] = useState(null);
@@ -49,7 +50,7 @@ const Home = () => {
   }
 
   return (
-    <Flex minH='100vh' flexDirection='column'>
+    <Flex minH='100vh' flexDirection='column' bgImage={darkBackground}  bgPosition='center' bgRepeat='no-repeat'>
       <NavBarWeb3 parentCallback={callbackProvider} />
       <Container maxW='container.md' p={3}>
         <VStack spacing="16px" m={3}>
