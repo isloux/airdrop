@@ -1,11 +1,13 @@
 import { Button, Flex, VStack, Container, Box, Image, Center, Heading } from '@chakra-ui/react';
+import { useColorMode } from "@chakra-ui/react";
 import NavBarWeb3 from '../components/navbar_web3';
 import SmallWithLogoLeft from '../components/footer';
 import CountdownTimer from '../components/countdown';
 import { useState, useEffect } from 'react';
 import { Contract } from 'ethers';
 import contractJson from '../AirdropList.json';
-import darkBackground from '../background.png';
+import darkBackground from '../2.png';
+import lightBackground from '../1.png';
 
 const Home = () => {
   const [signer, setSigner] = useState(null);
@@ -23,6 +25,12 @@ const Home = () => {
     }
   });
 
+    const { colorMode } = useColorMode();
+    const backgroundImage =
+      colorMode === "light"
+        ? lightBackground // Replace with your light mode image URL
+        : darkBackground;  // Replace with your dark mode image URL
+
   const callbackProvider = (childData) => {
     setSigner(childData.signer);
     setNetworkId(childData.networkId);
@@ -31,7 +39,7 @@ const Home = () => {
 
   const sendAirdrop = async () => {
     console.log(networkId);
-    if (networkId != 97) alert("Please connect to BSC testnet!");
+    if (networkId !== 97) alert("Please connect to BSC testnet!");
     else {
       const deployedAddress = "0x7C78ad05F65432d08C3700879C8C86Ba90c81d33";
       const contract = new Contract(deployedAddress, contractJson.abi, signer);
@@ -50,7 +58,7 @@ const Home = () => {
   }
 
   return (
-    <Flex minH='100vh' flexDirection='column' bgImage={darkBackground}  bgPosition='center' bgRepeat='no-repeat'>
+    <Flex height='100vh' flexDirection='column' bgSize='cover' bgImage={backgroundImage} bgPosition='center' bgRepeat='no-repeat' width="100%">
       <NavBarWeb3 parentCallback={callbackProvider} />
       <Container maxW='container.md' p={3}>
         <VStack spacing="16px" m={3}>
@@ -58,7 +66,7 @@ const Home = () => {
           <Center>
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
-          <Box>Airdrop date: 26th December 2023, 14:13:20</Box>
+          <Box>Airdrop date: 29th February 2024, 14:13:20</Box>
           <CountdownTimer>Time until airdrop</CountdownTimer>
           <Box>
             <Button boxShadow="lg" fontSize="xl" p={6} onClick={sendAirdrop}>
