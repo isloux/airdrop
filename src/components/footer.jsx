@@ -5,7 +5,7 @@ import {
     Stack,
     Text,
     useColorModeValue,
-    VisuallyHidden
+    VisuallyHidden, Link
   } from '@chakra-ui/react';
   import { FaInstagram, FaTwitter, FaFacebook, FaTelegram } from 'react-icons/fa';
   import { ReactNode } from 'react';
@@ -55,6 +55,7 @@ import {
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
           <Text>© 2023 Website maintained by Subterra Software SASU</Text>
+          <Link href='https://www.baldg.io' isExternal>www.baldg.io</Link>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/BaldGtoken'}>
               <FaTwitter />
