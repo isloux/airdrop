@@ -58,7 +58,7 @@ const Home = () => {
   }
 
   return (
-    <Flex height='100vh' flexDirection='column' bgSize='cover' bgImage={backgroundImage} bgPosition='center' bgRepeat='no-repeat' width="100%">
+    <Flex height='100%' flexDirection='column' bgSize='cover' bgImage={backgroundImage} bgPosition='center' bgRepeat='no-repeat' width="100%">
       <NavBarWeb3 parentCallback={callbackProvider} />
       <Container maxW='container.md' p={3}>
         <VStack spacing="16px" m={3}>
