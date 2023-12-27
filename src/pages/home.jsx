@@ -58,7 +58,7 @@ const Home = () => {
   }
 
   return (
-    <Flex height='100%' flexDirection='column' bgSize='cover' bgImage={backgroundImage} bgPosition='center' bgRepeat='no-repeat' width="100%">
+    <Flex height='100vh' flexDirection='column' bgSize='cover' bgImage={backgroundImage} bgPosition='center' bgRepeat='no-repeat' width="100%">
       <NavBarWeb3 parentCallback={callbackProvider} />
       <Container maxW='container.md' p={3}>
         <VStack spacing="16px" m={3}>
@@ -66,7 +66,7 @@ const Home = () => {
           <Center>
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
-          <Box textAlign='justify'>
+          <Box textAlign='justify' fontSize="lg">
             An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 14:13:20 GMT.
             The tokens will be distributed to all the addresses who participated in the fair launch presale. The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).
           </Box>
@@ -77,7 +77,7 @@ const Home = () => {
               Send airdrop
             </Button>
           </Box>
-          <Box color="red" fontSize="3xl" textAlign="center">Only wallets participating to the presale will receive a token airdrop</Box>
+          <Box fontSize="3xl" textAlign="center">Only wallets participating to the presale will receive a token airdrop</Box>
         </VStack>
       </Container>
       <SmallWithLogoLeft />
