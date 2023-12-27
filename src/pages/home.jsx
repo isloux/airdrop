@@ -66,7 +66,7 @@ const Home = () => {
           <Center>
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
-          <Box textAlign='justify' fontSize="lg">
+          <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light"?"base.200":"base.400"} p={4} borderRadius={8} opacity="85%">
             An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 14:13:20 GMT.
             The tokens will be distributed to all the addresses who participated in the fair launch presale. The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).
           </Box>
