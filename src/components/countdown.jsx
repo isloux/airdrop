@@ -3,7 +3,7 @@ import { Box, Text } from "@chakra-ui/react";
 
 const CountdownTimer = (props) => {
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-    const targetDate = new Date("2024-02-29T14:13:20"); // Replace with your target date and time
+    const targetDate = new Date("2024-02-29T09:46:40"); // Replace with your target date and time
   
     useEffect(() => {
       const interval = setInterval(() => {

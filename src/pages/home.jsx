@@ -39,9 +39,9 @@ const Home = () => {
 
   const sendAirdrop = async () => {
     console.log(networkId);
-    if (networkId !== 97) alert("Please connect to BSC testnet!");
+    if (networkId !== 56) alert("Please connect to BSC mainnet!");
     else {
-      const deployedAddress = "0x7C78ad05F65432d08C3700879C8C86Ba90c81d33";
+      const deployedAddress = "0x1b09956317e5c634629280BeA3CA611e782DC53a";
       const contract = new Contract(deployedAddress, contractJson.abi, signer);
       try {
         const estimatedGas = await contract.sendAirdrop.estimateGas();
@@ -62,15 +62,15 @@ const Home = () => {
       <NavBarWeb3 parentCallback={callbackProvider} />
       <Container maxW='container.md' p={3}>
         <VStack spacing="16px" m={3}>
-          <Heading>BaldG airdrop (on testnet)</Heading>
+          <Heading>BaldG airdrop</Heading>
           <Center>
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
           <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light"?"base.200":"base.400"} p={4} borderRadius={8} opacity="85%">
-            An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 14:13:20 GMT.
+            An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 09:46:40 GMT.
             The tokens will be distributed to all the addresses who participated in the fair launch presale. The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).
           </Box>
-          <Box>Airdrop date: 29th February 2024, 14:13:20</Box>
+          <Box>Airdrop date: 29th February 2024, 09:46:40</Box>
           <CountdownTimer>Time until airdrop</CountdownTimer>
           <Box>
             <Button boxShadow="lg" fontSize="xl" p={6} onClick={sendAirdrop}>
