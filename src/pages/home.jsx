@@ -69,8 +69,7 @@ const Home = () => {
           </Center>
           <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light"?"base.200":"base.400"} p={4} borderRadius={8} opacity="85%">
             <List spacing={3}>
-              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 09:46:40 GMT.</ListItem>
-              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The tokens will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 1,000,000,000 BALDG token will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />Someone actually needs to click on the Send airdrop button to send out the tokens to all the participants</ListItem>
             </List>
