@@ -1,4 +1,5 @@
-import { Button, Flex, VStack, Container, Box, Image, Center, Heading } from '@chakra-ui/react';
+import { Button, Flex, VStack, Container, Box, Image, Center, Heading, List, ListItem, ListIcon } from '@chakra-ui/react';
+import { MdCheckCircle } from "react-icons/md";
 import { useColorMode } from "@chakra-ui/react";
 import NavBarWeb3 from '../components/navbar_web3';
 import SmallWithLogoLeft from '../components/footer';
@@ -67,8 +68,11 @@ const Home = () => {
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
           <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light"?"base.200":"base.400"} p={4} borderRadius={8} opacity="85%">
-            An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 09:46:40 GMT.
-            The tokens will be distributed to all the addresses who participated in the fair launch presale. The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).
+            <List spacing={3}>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 09:46:40 GMT.</ListItem>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The tokens will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).</ListItem>
+            </List>
           </Box>
           <Box>Airdrop date: 29th February 2024, 09:46:40</Box>
           <CountdownTimer>Time until airdrop</CountdownTimer>

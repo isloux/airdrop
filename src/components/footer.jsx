@@ -54,7 +54,7 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text>© 2023 Website maintained by Subterra Software SASU</Text>
+          <Text>© 2024 Website maintained by Subterra Software SASU</Text>
           <Link href='https://www.baldg.io' isExternal>www.baldg.io</Link>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/BaldGtoken'}>
