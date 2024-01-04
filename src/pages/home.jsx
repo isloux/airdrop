@@ -1,4 +1,4 @@
-import { Button, Flex, VStack, Container, Box, Image, Center, Heading, List, ListItem, ListIcon } from '@chakra-ui/react';
+import { Button, Flex, VStack, Container, Box, Image, Center, Heading, List, ListItem, ListIcon, Link } from '@chakra-ui/react';
 import { MdCheckCircle } from "react-icons/md";
 import { useColorMode } from "@chakra-ui/react";
 import NavBarWeb3 from '../components/navbar_web3';
@@ -72,9 +72,11 @@ const Home = () => {
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 1,000,000,000 BALDG token will take place on the Thursday 29 February 2023 09:46:40 GMT.</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The tokens will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).</ListItem>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />Someone actually needs to click on the Send airdrop button to send out the tokens to all the participants</ListItem>
             </List>
           </Box>
           <Box>Airdrop date: 29th February 2024, 09:46:40</Box>
+          <Link href='https://bscscan.com/address/0x1b09956317e5c634629280bea3ca611e782dc53a#code'>Airdrop smart contract on BSC</Link>
           <CountdownTimer>Time until airdrop</CountdownTimer>
           <Box>
             <Button boxShadow="lg" fontSize="xl" p={6} onClick={sendAirdrop}>
