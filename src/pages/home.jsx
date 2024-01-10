@@ -40,7 +40,8 @@ const Home = () => {
 
   const sendAirdrop = async () => {
     console.log(networkId);
-    if (networkId !== 56) alert("Please connect to BSC mainnet!");
+    if (networkId === 0) alert("Please connect your wallet to use the app!");
+    else if (networkId !== 56) alert("Please connect to BSC mainnet!");
     else {
       const deployedAddress = "0x1b09956317e5c634629280BeA3CA611e782DC53a";
       const contract = new Contract(deployedAddress, contractJson.abi, signer);

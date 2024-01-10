@@ -9,7 +9,7 @@ import {
     useColorModeValue,
     VisuallyHidden, Link
   } from '@chakra-ui/react';
-  import { FaInstagram, FaTwitter, FaFacebook, FaTelegram } from 'react-icons/fa';
+  import { FaInstagram, FaTwitter, FaFacebook, FaTelegram, FaReddit } from 'react-icons/fa';
   import { ReactNode } from 'react';
   import solidproof from '../solidproof_white.png';
   
@@ -76,6 +76,9 @@ import {
             </SocialButton>
             <SocialButton label={'Telegram'} href={'https://t.me/baldgtoken'}>
               <FaTelegram />
+            </SocialButton>
+            <SocialButton label={'Reddit'} href={'https://www.reddit.com/r/baldgtoken'}>
+              <FaReddit />
             </SocialButton>
           </Stack>
         </Container>
