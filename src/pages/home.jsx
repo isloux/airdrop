@@ -82,7 +82,7 @@ const Home = () => {
               Send airdrop
             </Button>
           </Box>
-          <Box fontSize="3xl" textAlign="center">Only wallets participating to the presale will receive a token airdrop</Box>
+          <Box fontSize="3xl" textAlign="center">Only wallets participating in the presale will receive a token airdrop</Box>
         </VStack>
       </Container>
       <SmallWithLogoLeft />

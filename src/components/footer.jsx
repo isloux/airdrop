@@ -2,13 +2,16 @@ import {
     Box,
     chakra,
     Container,
+    Flex,
     Stack,
+    Image,
     Text,
     useColorModeValue,
     VisuallyHidden, Link
   } from '@chakra-ui/react';
   import { FaInstagram, FaTwitter, FaFacebook, FaTelegram } from 'react-icons/fa';
   import { ReactNode } from 'react';
+  import solidproof from '../solidproof_white.png';
   
   const SocialButton = ({
     children,
@@ -54,8 +57,13 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text>© 2024 Website maintained by Subterra Software SASU</Text>
-          <Link href='https://www.baldg.io' isExternal>www.baldg.io</Link>
+          <Flex align="center">
+            <Box marginRight="2">
+              <Text fontSize="lg">Audited by</Text>
+            </Box>
+            <Link href="https://solidproof.io" isExternal><Image src={solidproof} alt="Solidproof Logo" /></Link>
+          </Flex>
+          <Link href='https://www.baldg.io' isExternal fontSize="xl">www.baldg.io</Link>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/BaldGtoken'}>
               <FaTwitter />
