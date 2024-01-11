@@ -61,7 +61,7 @@ import {
             <Box marginRight="2">
               <Text fontSize="lg">Audited by</Text>
             </Box>
-            <Link href="https://solidproof.io" isExternal><Image src={solidproof} alt="Solidproof Logo" /></Link>
+            <Link href="https://solidproof.io" isExternal><Image src={solidproof} alt="Solidproof Logo" bgColor={useColorModeValue("#58A3C1", "#132F5E")} p={1}/></Link>
           </Flex>
           <Link href='https://www.baldg.io' isExternal fontSize="xl">www.baldg.io</Link>
           <Stack direction={'row'} spacing={6}>
