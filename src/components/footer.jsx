@@ -74,7 +74,7 @@ import {
             <SocialButton label={'Instagram'} href={'https://www.instagram.com/baldgtoken'}>
               <FaInstagram />
             </SocialButton>
-            <SocialButton label={'Telegram'} href={'https://t.me/baldgtoken'}>
+            <SocialButton label={'Telegram'} href={'https://t.me/BaldG_official'}>
               <FaTelegram />
             </SocialButton>
             <SocialButton label={'Reddit'} href={'https://www.reddit.com/r/baldgtoken'}>
