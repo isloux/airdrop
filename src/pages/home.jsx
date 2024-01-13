@@ -76,7 +76,7 @@ const Home = () => {
             </List>
           </Box>
           <Box>Airdrop date: 29th February 2024, 09:46:40</Box>
-          <Link href='https://bscscan.com/address/0x1b09956317e5c634629280bea3ca611e782dc53a#code'>Airdrop smart contract on BSC</Link>
+          <Link href='https://bscscan.com/address/0xB54874D9DdC4EF23e41D9677172De59583Fb251f#code'>Airdrop smart contract on BSC</Link>
           <CountdownTimer>Time until airdrop</CountdownTimer>
           <Box>
             <Button boxShadow="lg" fontSize="xl" p={6} onClick={sendAirdrop}>
