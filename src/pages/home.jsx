@@ -39,11 +39,11 @@ const Home = () => {
   }
 
   const sendAirdrop = async () => {
-    console.log(networkId);
-    if (networkId === 0) alert("Please connect your wallet to use the app!");
-    else if (networkId !== 56) alert("Please connect to BSC mainnet!");
+    console.log(networkId, typeof networkId);
+    if (networkId.toString() === "0") alert("Please connect your wallet to use the app!");
+    else if (networkId.toString() !== "56") alert("Please connect to BSC mainnet!");
     else {
-      const deployedAddress = "0x1b09956317e5c634629280BeA3CA611e782DC53a";
+      const deployedAddress = "0xB54874D9DdC4EF23e41D9677172De59583Fb251f";
       const contract = new Contract(deployedAddress, contractJson.abi, signer);
       try {
         const estimatedGas = await contract.sendAirdrop.estimateGas();
@@ -54,7 +54,7 @@ const Home = () => {
         console.log(tx);
       }
       catch {
-        alert("Airdrop cannot be sent! The possible reasons are:\n - The airdrop time has not been reached\n - The airdrop chest has not been funded\n - The airdrop has already been sent out");
+        alert("Airdrop cannot be sent! The possible reasons are:\n - The airdrop time has not been reached\n - The airdrop treasury has not been funded\n - The airdrop has already been sent out");
       }
     }
   }
@@ -70,7 +70,7 @@ const Home = () => {
           </Center>
           <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light"?"base.200":"base.400"} p={4} borderRadius={8} opacity="85%">
             <List spacing={3}>
-              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 1,000,000,000 BALDG token will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 975,000,000 BALDG token will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />Someone actually needs to click on the Send airdrop button to send out the tokens to all the participants</ListItem>
             </List>
