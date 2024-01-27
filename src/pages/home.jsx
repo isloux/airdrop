@@ -1,4 +1,4 @@
-import { Button, Flex, VStack, Container, Box, Image, Center, Heading, List, ListItem, ListIcon, Link } from '@chakra-ui/react';
+import { Button, Flex, VStack, Container, Box, Image, Center, Heading, List, ListItem, ListIcon, Link, HStack } from '@chakra-ui/react';
 import { MdCheckCircle } from "react-icons/md";
 import { useColorMode } from "@chakra-ui/react";
 import NavBarWeb3 from '../components/navbar_web3';
@@ -9,11 +9,15 @@ import { Contract } from 'ethers';
 import contractJson from '../AirdropList.json';
 import darkBackground from '../2.png';
 import lightBackground from '../1.png';
+import Recipients from '../components/recipients';
+import Tokens from '../components/tokens';
 
 const Home = () => {
   const [signer, setSigner] = useState(null);
   const [networkId, setNetworkId] = useState(0);
   const [account, setAccount] = useState("");
+  const [recipientCount, setRecipientCount] = useState(0);
+  const [tokenCount, setTokenCount] = useState(0);
 
   useEffect(() => {
     if (window.ethereum) {
@@ -32,10 +36,21 @@ const Home = () => {
       ? lightBackground // Replace with your light mode image URL
       : darkBackground;  // Replace with your dark mode image URL
 
+  const displayInfo = (_signer) => {
+    console.log(_signer);
+    if (_signer) {
+      const deployedAddress = "0xB54874D9DdC4EF23e41D9677172De59583Fb251f";
+      const contract = new Contract(deployedAddress, contractJson.abi, _signer);
+      contract.count().then((rc) => { setRecipientCount(rc); });
+      contract.getBalance().then((bb) => { setTokenCount(bb); });
+    }
+  }
+
   const callbackProvider = (childData) => {
     setSigner(childData.signer);
     setNetworkId(childData.networkId);
     setAccount(childData.account);
+    displayInfo(childData.signer);
   }
 
   const sendAirdrop = async () => {
@@ -68,16 +83,20 @@ const Home = () => {
           <Center>
             <Image boxSize="92px" src="/BaldG_192.png" alt="coin logo" />
           </Center>
-          <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light"?"base.200":"base.400"} p={4} borderRadius={8} opacity="85%">
+          <Box textAlign='justify' fontSize="lg" bgColor={colorMode === "light" ? "base.200" : "base.400"} p={4} borderRadius={8} opacity="85%">
             <List spacing={3}>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />An airdrop of 975,000,000 BALDG token will be distributed to all the addresses who participated in the fair launch presale.</ListItem>
               <ListItem><ListIcon as={MdCheckCircle} color='green.500' />The amount of tokens distributed to each wallet will be proportional to the amount of BALDG tokens held at the time of the airdrop (not at the end of the presale).</ListItem>
-              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />Someone actually needs to click on the Send airdrop button to send out the tokens to all the participants</ListItem>
+              <ListItem><ListIcon as={MdCheckCircle} color='green.500' />Someone actually needs to click on the Send airdrop button to send out the tokens to all the participants.</ListItem>
             </List>
           </Box>
           <Box>Airdrop date: 29th February 2024, 09:46:40</Box>
           <Link href='https://bscscan.com/address/0xB54874D9DdC4EF23e41D9677172De59583Fb251f#code'>Airdrop smart contract on BSC</Link>
           <CountdownTimer>Time until airdrop</CountdownTimer>
+          <HStack>
+            <Recipients>{recipientCount}</Recipients>
+            <Tokens>{tokenCount}</Tokens>
+          </HStack>
           <Box>
             <Button boxShadow="lg" fontSize="xl" p={6} onClick={sendAirdrop}>
               Send airdrop

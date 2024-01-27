@@ -5,8 +5,6 @@ import { BrowserProvider } from 'ethers';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-// Voir https://docs.moonbeam.network/builders/integrations/wallets/metamask/
-
 const NavBarWeb3 = (props) => {
     const { colorMode, toggleColorMode } = useColorMode()
     const buttonText = useRef("CONNECT WALLET");

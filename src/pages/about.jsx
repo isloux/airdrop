@@ -18,6 +18,8 @@ const About = () => {
                         <Box textStyle='answer'>Airdrop recipient addresses will be the ones participating to the BaldG token <Link href='https://www.pinksale.finance/launchpads?chain=BSC-Test'>Pinksale presale</Link>.</Box>
                         <Box textStyle='question'>When will the airdrop be sent out?</Box>
                         <Box textStyle='answer'>The airdrop will be sent out any time after the airdrop time is past.</Box>
+                        <Box textStyle='question'>How much will I receive from the airdrop?</Box>
+                        <Box textStyle='answer'>The amount BaldG tokens distributed to each wallet will be proportional to the percentage of BaldG tokens held in that wallet at the time of the airdrop in comparison to the total amount of tokens held in all the presale contributor wallets.</Box>
                         <Box textStyle='question'>What should I do if I have participated to the presale?</Box>
                         <Box textStyle='answer'>Nothing and wait for the airdrop reception, or click on the airdrop button on the Home page to send the airdrop to all participants. The airdrop can be sent out only once.</Box>
                         <Box textStyle='question'>What should I do if I have not participated to the presale?</Box>
